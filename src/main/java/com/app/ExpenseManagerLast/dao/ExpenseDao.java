@@ -33,10 +33,10 @@ public class ExpenseDao implements IExpenseDao{
 	public List<Object> getListOfExpenses() {
 		// TODO Auto-generated method stub
 		
-		CriteriaBuilder criteriaBuilder = entitytManager.getCriteriaBuilder();
-		CriteriaQuery<ExpenseModel> criteriaQuery = criteriaBuilder.createQuery(ExpenseModel.class);
-		Root<ExpenseModel> root = criteriaQuery.from(ExpenseModel.class);
-		
+//		CriteriaBuilder criteriaBuilder = entitytManager.getCriteriaBuilder();
+//		CriteriaQuery<ExpenseModel> criteriaQuery = criteriaBuilder.createQuery(ExpenseModel.class);
+//		Root<ExpenseModel> root = criteriaQuery.from(ExpenseModel.class);
+//		criteriaQuery.select(root).where(criteriaBuilder.equal()
 		String jpql = "select monthname(e.createDate),YEAR(e.createDate), SUM(e.expenseAmount) from ExpenseModel e GROUP BY monthname(e.createDate) ";
 		List<Object> data = new ArrayList<Object>();
 		data = entitytManager.createQuery(jpql).getResultList();
